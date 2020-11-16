@@ -1,8 +1,7 @@
 import React ,{ Component }  from 'react';
-import {Navbar, NavbarBrand} from 'reactstrap';
-import Menu from './components/MenuComponents';
+import Main from './components/MainComponent';
 import './App.css';
-import {DISHES} from './shared/dishes';
+import {BrowserRouter} from 'react-router-dom';
 // you can also use an ES6 class to define a component:
 
 // class Welcome extends React.Component {
@@ -11,24 +10,15 @@ import {DISHES} from './shared/dishes';
 //   }
 // }
 class App extends Component {
-    constructor(props) {
-    super(props);
-
-    this.state = {
-      dishes: DISHES     //java script object
-    };
-  }
 
   render(){
   return (
-    <div>
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Restorante Con Fusion</NavbarBrand>
-        </div>
-      </Navbar>
-      <Menu dishes={this.state.dishes} />
-    </div>
+    <BrowserRouter>
+      <div>
+         <Main/>
+      </div>
+    </BrowserRouter>
+
     );
   }
 }
