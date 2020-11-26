@@ -73,29 +73,5 @@ import { Link } from 'react-router-dom';
             );
         }
     }
-    // const DishDetail=(props)=> {
-
-    //     if (props.dish != null) {
-    //         const dishDetails = <RenderDish dish={props.dish}/>
-    //         const dishComments = <RenderComments comments={props.comments}/>;
-    //         return (
-    //             <div className="col">
-    //                 <div className="row">
-    //                     <div className="col-md-5 m-1">
-    //                         {dishDetails}
-    //                     </div>
-
-    //                     <div className="col-md-5 m-1">
-    //                         {dishComments}
-    //                     </div>
-    //                 </div>
-    //             </div>
-
-
-    //         );
-    //     }
-    //     else
-    //         return (<div></div>);
-    // }
 
 export default DishDetail;

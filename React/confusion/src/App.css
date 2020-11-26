@@ -1,6 +1,7 @@
 .row-header{
     margin:0px auto;
     padding:0px auto;
+    text-align: center;
 }
 
 .row-content {
@@ -8,6 +9,7 @@
     padding: 50px 0px 50px 0px;
     border-bottom: 1px ridge;
     min-height:400px;
+    text-align: center;
 }
 
 .footer{
@@ -20,6 +22,7 @@
     margin:0px auto;
     background: #9575CD ;
     color:floralwhite;
+
 }
 
 address{
@@ -30,4 +33,10 @@ address{
 
 .navbar-dark {
     background-color: #512DA8;
+}
+.mediastyle{
+    text-align: left;
+    color: black;
+    margin: 10px;
+
 }
