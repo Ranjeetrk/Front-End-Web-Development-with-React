@@ -2,6 +2,8 @@ import React ,{ Component }  from 'react';
 import Main from './components/MainComponent';
 import './App.css';
 import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
 // you can also use an ES6 class to define a component:
 
 // class Welcome extends React.Component {
@@ -9,15 +11,20 @@ import {BrowserRouter} from 'react-router-dom';
 //     return <h1>Hello, {this.props.name}</h1>;
 //   }
 // }
+
+const store = ConfigureStore();
+
 class App extends Component {
 
   render(){
   return (
-    <BrowserRouter>
-      <div>
-         <Main/>
-      </div>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Main />
+        </div>
+      </BrowserRouter>
+    </Provider>
 
     );
   }
