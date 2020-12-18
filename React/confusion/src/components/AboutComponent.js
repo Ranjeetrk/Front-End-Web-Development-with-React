@@ -1,22 +1,61 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Fade, Stagger } from 'react-animation-components';
+import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function About(props) {
-
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <p>
-                <RenderLeader leader ={leader}/>
-            </p>
-        );
-    });
+    const leaders = (() => {
+        if (props.leaders.isLoading) {
+          return (
+            <div className="container">
+              <div className="row">
+                <Loading />
+              </div>
+            </div>
+          );
+        }
+        else if (props.leaders.errMess) {
+          return (
+            <div className="container">
+              <div className="row">
+                <h4>{props.leaders.errMess}</h4>
+              </div>
+            </div>
+          );
+        }
+        else {
+          return (
+            <ul className="list-unstyled">
+              <Stagger in>
+                {
+                  props.leaders.leaders.map((leader) => {
+                    return (
+                      <Fade in>
+                        <RenderLeader leader={leader} />
+                      </Fade>
+                    );
+                  })
+                }
+              </Stagger>
+            </ul>
+          );
+        }
+      })();
+    // const leaders = props.leaders.leaders.map((leader) => {
+    //     return (
+    //         <p>
+    //             <RenderLeader leader ={leader}/>
+    //         </p>
+    //     );
+    // });
     function RenderLeader({leader}){
         return(
             <div key={leader.id} className="mediastyle">
                 <Media tag="li">
                     <Media left className="col-2">
-                    <Media object src={leader.image} alt={leader.name} />
+                    <Media object src={baseUrl+leader.image} alt={leader.name} />
                     </Media>
                     <Media right body className="col-10">
                         <Media heading className="mediastyle">{leader.name}</Media>
